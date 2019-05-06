@@ -1,0 +1,1 @@
+winscp.com /ini=nul /script="D:\Mes Documents\Workspace\webcam-react\deploy.txt"
