@@ -7,9 +7,12 @@ import Typography from '@material-ui/core/Typography';
 import Drawer from '@material-ui/core/Drawer';
 
 import ArrowBack from '@material-ui/icons/ArrowBack';
+import BarChart from '@material-ui/icons/BarChart';
 import MenuIcon from '@material-ui/icons/Menu';
 import { withStyles } from '@material-ui/core/styles';
+
 import ChartForm from './ChartForm';
+import AckLoadingZone from './AckLoadingZone';
 
 const styles = () => ({
     icon: {
@@ -18,16 +21,24 @@ const styles = () => ({
     },
     drawerPaper: {
         width: 240
+    },
+    grow: {
+        flexGrow: 1
     }
 });
 
 class Topbar extends React.Component {
     state = {
-        open: false
+        openLeft: false,
+        openRight: false
     };
 
     handleDrawerToggle = () => {
-        this.setState(state => ({ open: !state.open }));
+        this.setState(state => ({ openLeft: !state.openLeft }));
+    };
+
+    handleDrawerToggleInfo = () => {
+        this.setState(state => ({ openRight: !state.openRight }));
     };
 
     render() {
@@ -48,38 +59,58 @@ class Topbar extends React.Component {
                                 >
                                     <ArrowBack />
                                 </IconButton>
-                                <Typography inline variant="h6" color="inherit">
-                                    Accueil
-                                </Typography>
                             </a>
                         }
                         {mobile &&
-                            <IconButton
-                                className={classes.icon}
-                                color="inherit"
-                                onClick={this.handleDrawerToggle}
-                            >
-                                <MenuIcon />
-                            </IconButton>
+                                <IconButton
+                                    className={classes.icon}
+                                    color="inherit"
+                                    onClick={this.handleDrawerToggle}
+                                >
+                                    <MenuIcon />
+                                </IconButton>
                         }
+                        <Typography inline variant="h6" color="inherit" className={classes.grow}>
+                            Accueil
+                        </Typography>
+
+                        <AckLoadingZone AckS={AckS} AckT={AckT} AckU={AckU} AckV={AckV} AckW={AckW} AckX={AckX} />
+
+                        <IconButton
+                            className={classes.icon}
+                            color="inherit"
+                            onClick={this.handleDrawerToggleInfo}
+                        >
+                            <BarChart />
+                        </IconButton>
                     </Toolbar>
                 </AppBar>
                 {mobile &&
                     <Drawer
                         variant='temporary'
                         anchor='left'
-                        classes={{paper: classes.drawerPaper}}
-                        open={this.state.open}
+                        classes={{ paper: classes.drawerPaper }}
+                        open={this.state.openLeft}
                         onClose={this.handleDrawerToggle}
                     >
                         <ChartForm
-                            AckS={AckS} AckT={AckT} AckU={AckU} AckV={AckV} AckW={AckW} AckX={AckX}
                             period={period}
                             updatePeriod={updatePeriod}
                             getNewData={getNewData}
                         />
                     </Drawer>
                 }
+                <Drawer
+                    variant='temporary'
+                    anchor='right'
+                    classes={{ paper: classes.drawerPaper }}
+                    open={this.state.openRight}
+                    onClose={this.handleDrawerToggleInfo}
+                >
+                    <Typography>
+                        Afficher les min/max des courbes ?
+                    </Typography>
+                </Drawer>
             </Fragment>
         );
     }

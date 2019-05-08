@@ -19,12 +19,12 @@ class GraphPage extends React.Component {
     
     render() {
         const {
-            S, ST, SH, AckS,
-            T, TT, TH, AckT,
-            U, UT, UH, AckU,
-            V, VT, VH, AckV,
-            W, WT, WH, AckW,
-            X, XT, XH, AckX,
+            S, ST, SH,
+            T, TT, TH,
+            U, UT, UH,
+            V, VT, VH,
+            W, WT, WH,
+            X, XT, XH,
             getNewData, mobile,
             period, updatePeriod
         } = this.props;
@@ -34,7 +34,6 @@ class GraphPage extends React.Component {
                 {!mobile &&
                     <Grid item xs={3} style={{ display: 'flex', flex: '1 0 auto', padding: '30px', justifyContent: 'center' }}>
                         <ChartForm
-                            AckS={AckS} AckT={AckT} AckU={AckU} AckV={AckV} AckW={AckW} AckX={AckX}
                             getNewData={getNewData}
                             period={period}
                             updatePeriod={updatePeriod}

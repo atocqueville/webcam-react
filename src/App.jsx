@@ -17,7 +17,7 @@ import { updatePeriod } from './redux/settings/actions';
 
 class App extends React.Component {
     componentDidMount() {
-        this.getNewData(this.props.period);
+        // this.getNewData(this.props.period);
         this.props.init('sensorForm', initialValues);
     }
 
@@ -46,12 +46,8 @@ class App extends React.Component {
                     />
 
                     <GraphPage
-                        S={S} AckS={AckS}
-                        T={T} AckT={AckT}
-                        U={U} AckU={AckU}
-                        V={V} AckV={AckV}
-                        W={W} AckW={AckW}
-                        X={X} AckX={AckX}
+                        S={S} T={T} U={U}
+                        V={V} W={W} X={X}
                         getNewData={this.getNewData}
                         mobile={mobile}
                         period={period}

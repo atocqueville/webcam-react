@@ -7,10 +7,7 @@ import CheckboxSection from './Formulaire/CheckboxSection';
 
 class ChartForm extends React.Component {
     render() {
-        const {
-            AckS, AckT, AckU, AckV, AckW, AckX,
-            getNewData, period, updatePeriod
-        } = this.props;
+        const { getNewData, period, updatePeriod } = this.props;
 
         return (
             <Grid container direction='column'>
@@ -18,7 +15,7 @@ class ChartForm extends React.Component {
                     <RadioSection getNewData={getNewData} period={period} updatePeriod={updatePeriod} />
                 </Grid>
                 <Grid item style={{ paddingTop: '20px' }}>
-                    <CheckboxSection AckS={AckS} AckT={AckT} AckU={AckU} AckV={AckV} AckW={AckW} AckX={AckX} />
+                    <CheckboxSection />
                 </Grid>
             </Grid>
         );

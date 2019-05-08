@@ -2,22 +2,20 @@ import React from 'react';
 
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import CircularProgress from '@material-ui/core/CircularProgress';
 
 import CheckboxField from '../../redux/form/CheckboxField';
 import CheckboxItem from '../../classes/CheckboxItem';
 
 class CheckboxSection extends React.Component {
     render() {
-        const { AckS, AckT, AckU, AckV, AckW, AckX } = this.props;
 
         const checkboxTab = [
-            new CheckboxItem('Chambre parents', 'ST', 'SH', AckS),
-            new CheckboxItem('Entrée', 'TT', 'TH', AckT),
-            new CheckboxItem('Chambre Arthur', 'UT', 'UH', AckU),
-            new CheckboxItem('Extérieur', 'VT', 'VH', AckV),
-            new CheckboxItem('Cave', 'WT', 'WH', AckW),
-            new CheckboxItem('Sous-sol', 'XT', 'XH', AckX)
+            new CheckboxItem('Chambre parents', 'ST', 'SH'),
+            new CheckboxItem('Entrée', 'TT', 'TH'),
+            new CheckboxItem('Chambre Arthur', 'UT', 'UH'),
+            new CheckboxItem('Extérieur', 'VT', 'VH'),
+            new CheckboxItem('Cave', 'WT', 'WH'),
+            new CheckboxItem('Sous-sol', 'XT', 'XH')
         ];
 
         return (
@@ -42,11 +40,6 @@ class CheckboxSection extends React.Component {
                             <Grid item xs={2} style={{ display: 'flex', justifyContent: 'center' }}>
                                 <CheckboxField name={item.leftBox} />
                             </Grid>
-                            {/*<Grid item xs={2} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>*/}
-                            {/*    {item.ack.loading &&*/}
-                            {/*    <CircularProgress size={23} />*/}
-                            {/*    }*/}
-                            {/*</Grid>*/}
                             <Grid item xs={8} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                                 <Typography inline> {item.location} </Typography>
                             </Grid>
