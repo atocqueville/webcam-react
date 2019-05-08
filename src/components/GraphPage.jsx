@@ -9,6 +9,14 @@ import Chart from './Chart';
 import ChartForm from './ChartForm';
 
 class GraphPage extends React.Component {
+    state = {
+        innerHeight: window.innerHeight
+    };
+
+    componentDidMount() {
+        window.addEventListener('resize', () => this.setState({ innerHeight: window.innerHeight }));
+    }
+    
     render() {
         const {
             S, ST, SH, AckS,
@@ -35,7 +43,7 @@ class GraphPage extends React.Component {
                 }
 
                 {!mobile &&
-                    <Grid item xs={9} style={{ display: 'flex', flex: '1 0 auto', padding: '30px', height: 'calc(100vh - 64px)' }}>
+                    <Grid item xs={9} style={{ display: 'flex', flex: '1 0 auto', padding: '30px', height: innerHeight - 64 }}>
                         <Paper style={{ display: 'flex', flex: '1 0 auto', width: '100%' }}>
                             <Chart
                                 S={S} ST={ST} SH={SH}
@@ -51,7 +59,7 @@ class GraphPage extends React.Component {
                 }
 
                 {mobile &&
-                    <Grid item style={{ display: 'flex', flex: '1 0 auto', width: '100%', height: 'calc(100vh - 64px)' }}>
+                    <Grid item style={{ display: 'flex', flex: '1 0 auto', width: '100%', height: innerHeight - 64 }}>
                         <Chart
                             S={S} ST={ST} SH={SH}
                             T={T} TT={TT} TH={TH}

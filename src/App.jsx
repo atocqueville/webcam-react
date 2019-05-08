@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { initialize } from 'redux-form';
 import withWidth, { isWidthUp } from '@material-ui/core/withWidth';
+import ScrollLock from 'react-scrolllock';
 
 import Grid from '@material-ui/core/Grid';
 import './app.css';
@@ -34,28 +35,30 @@ class App extends React.Component {
         const mobile = !isWidthUp('md', this.props.width);
 
         return (
-            <Grid>
-                <Topbar
-                    AckS={AckS} AckT={AckT} AckU={AckU} AckV={AckV} AckW={AckW} AckX={AckX}
-                    mobile={mobile}
-                    period={period}
-                    getNewData={this.getNewData}
-                    updatePeriod={updatePeriod}
-                />
+            <ScrollLock>
+                <Grid>
+                    <Topbar
+                        AckS={AckS} AckT={AckT} AckU={AckU} AckV={AckV} AckW={AckW} AckX={AckX}
+                        mobile={mobile}
+                        period={period}
+                        getNewData={this.getNewData}
+                        updatePeriod={updatePeriod}
+                    />
 
-                <GraphPage
-                    S={S} AckS={AckS}
-                    T={T} AckT={AckT}
-                    U={U} AckU={AckU}
-                    V={V} AckV={AckV}
-                    W={W} AckW={AckW}
-                    X={X} AckX={AckX}
-                    getNewData={this.getNewData}
-                    mobile={mobile}
-                    period={period}
-                    updatePeriod={updatePeriod}
-                />
-            </Grid>
+                    <GraphPage
+                        S={S} AckS={AckS}
+                        T={T} AckT={AckT}
+                        U={U} AckU={AckU}
+                        V={V} AckV={AckV}
+                        W={W} AckW={AckW}
+                        X={X} AckX={AckX}
+                        getNewData={this.getNewData}
+                        mobile={mobile}
+                        period={period}
+                        updatePeriod={updatePeriod}
+                    />
+                </Grid>
+            </ScrollLock>
         );
     }
 }
