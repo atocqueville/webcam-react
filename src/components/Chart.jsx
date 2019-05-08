@@ -4,6 +4,19 @@ import HighchartsReact from 'highcharts-react-official';
 import formatSeries from '../utils/formatSeries';
 
 class Chart extends React.Component {
+    static formatTooltip(tooltip, x = this.x, points = this.points) {
+        let s = '';
+        points[0].series.chart.series.forEach(series => {
+            let closest = series.data.reduce((prev, curr) => {
+                return (Math.abs(curr.x - x) < Math.abs(prev.x - x) ? curr : prev);
+            });
+            s += '<br/>' + series.name + ' <b>' + closest.y;
+            s += series.yAxis.opposite ? ' %</b>' : ' °C</b>';
+        });
+
+        return s;
+    }
+
     render() {
         const {
             S, ST, SH,
@@ -35,7 +48,10 @@ class Chart extends React.Component {
                 }
             },
             tooltip: {
-                split: true,
+                shared: true,
+                followPointer: true,
+                outside: true,
+                formatter: Chart.formatTooltip,
                 hideDelay: 0
             },
             title: {
@@ -43,7 +59,8 @@ class Chart extends React.Component {
             },
             series: series,
             xAxis: {
-                type: 'datetime'
+                type: 'datetime',
+                crosshair: true
             },
             yAxis: [{
                 labels: { format: '{value}°C' },
