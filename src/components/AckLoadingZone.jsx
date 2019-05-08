@@ -19,12 +19,12 @@ class AckLoadingZone extends React.Component {
         return (
             <Grid style={{ display: 'flex', alignItems: 'center', paddingRight: '10px' }}>
                 {count !== 0 &&
-                    <Grid>
+                    <Grid style={{ display: 'flex' }}>
                         <CircularProgress size={35} color='inherit' />
                     </Grid>
                 }
                 {count !== 0 &&
-                    <Typography variant='h6' color='inherit' style={{ position:'relative', right: '22px' }}>
+                    <Typography variant='h6' color='inherit' style={{ position:'relative', right: '23px' }}>
                         {count}
                     </Typography>
                 }
