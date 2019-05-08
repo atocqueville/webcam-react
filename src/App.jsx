@@ -17,7 +17,7 @@ import { updatePeriod } from './redux/settings/actions';
 
 class App extends React.Component {
     componentDidMount() {
-        // this.getNewData(this.props.period);
+        this.getNewData(this.props.period);
         this.props.init('sensorForm', initialValues);
     }
 
