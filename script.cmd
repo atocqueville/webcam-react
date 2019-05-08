@@ -1,1 +1,1 @@
-winscp.com /ini=nul /script="D:\Mes Documents\Workspace\webcam-react\deploy.txt"
+winscp.com /ini=nul /script="C:\Users\Alex\Workspace\webcam-react\deploy.txt"
