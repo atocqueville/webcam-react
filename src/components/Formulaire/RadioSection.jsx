@@ -4,9 +4,15 @@ import Grid from '@material-ui/core/Grid';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import Typography from '@material-ui/core/Typography';
+import { withStyles } from '@material-ui/core';
+
+const styles = () => ({
+    radio: {
+        padding: 5
+    }
+});
 
 class RadioSection extends React.Component {
-
     handleChange = event => {
         const time = event.target.value;
         this.props.updatePeriod(time);
@@ -29,9 +35,9 @@ class RadioSection extends React.Component {
                                 value={period}
                                 onChange={this.handleChange}
                             >
-                                <Radio value='1' />
-                                <Radio value='3' />
-                                <Radio value='7' />
+                                <Radio value='1' classes={{ root: this.props.classes.radio}} />
+                                <Radio value='3' classes={{ root: this.props.classes.radio}} />
+                                <Radio value='7' classes={{ root: this.props.classes.radio}} />
                             </RadioGroup>
                         </Grid>
                         <Grid item xs={5} style={{ display: 'flex', flex: '1 0 auto' }}>
@@ -53,9 +59,9 @@ class RadioSection extends React.Component {
                                 value={period}
                                 onChange={this.handleChange}
                             >
-                                <Radio value='30' />
-                                <Radio value='180' />
-                                <Radio value='365' />
+                                <Radio value='30' classes={{ root: this.props.classes.radio}} />
+                                <Radio value='180' classes={{ root: this.props.classes.radio}} />
+                                <Radio value='365' classes={{ root: this.props.classes.radio}} />
                             </RadioGroup>
                         </Grid>
                         <Grid item xs={3} style={{ display: 'flex', flex: '1 0 auto' }}>
@@ -78,4 +84,4 @@ class RadioSection extends React.Component {
     }
 }
 
-export default RadioSection;
+export default withStyles(styles)(RadioSection);

@@ -17,8 +17,7 @@ const styles = () => ({
         marginRight: 6
     },
     drawerPaper: {
-        width: 300,
-        paddingTop: '30px'
+        width: 240
     }
 });
 

@@ -5,13 +5,15 @@ import formatSeries from '../utils/formatSeries';
 
 class Chart extends React.Component {
     static formatTooltip(tooltip, x = this.x, points = this.points) {
-        let s = '';
+        let s = '<b>' + Highcharts.dateFormat('%e %B, %H:%M:%S', x) + '</b>';
         points[0].series.chart.series.forEach(series => {
             let closest = series.data.reduce((prev, curr) => {
                 return (Math.abs(curr.x - x) < Math.abs(prev.x - x) ? curr : prev);
             });
-            s += '<br/>' + series.name + ' <b>' + closest.y;
-            s += series.yAxis.opposite ? ' %</b>' : ' °C</b>';
+            if (Math.abs(x - closest.x) < 1000 * 3600 * 5) {
+                s += '<br/>' + series.name + ' <b>' + closest.y;
+                s += series.yAxis.opposite ? ' %</b>' : ' °C</b>';
+            }
         });
 
         return s;
@@ -47,6 +49,9 @@ class Chart extends React.Component {
                     turboThreshold: 0
                 }
             },
+            legend: {
+                itemDistance: 0
+            },
             tooltip: {
                 shared: true,
                 followPointer: true,
@@ -55,7 +60,8 @@ class Chart extends React.Component {
                 hideDelay: 0
             },
             title: {
-                text: 'Garches'
+                text: 'Garches',
+                style: { 'color': '#333333', 'fontSize': '15px' }
             },
             series: series,
             xAxis: {

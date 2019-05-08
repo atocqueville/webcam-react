@@ -1,6 +1,13 @@
 import React from 'react';
 import { Field } from 'redux-form';
 import Checkbox from '@material-ui/core/Checkbox';
+import { withStyles } from '@material-ui/core';
+
+const styles = () => ({
+    checkbox: {
+        padding: 5
+    }
+});
 
 class CheckboxField extends React.Component {
     renderCheckboxField = field => {
@@ -13,6 +20,7 @@ class CheckboxField extends React.Component {
                 checked={value}
                 onChange={onChange}
                 onBlur={onBlur}
+                classes={{ root: this.props.classes.checkbox}}
             />
         );
     };
@@ -28,4 +36,4 @@ class CheckboxField extends React.Component {
     }
 }
 
-export default CheckboxField;
+export default withStyles(styles)(CheckboxField);

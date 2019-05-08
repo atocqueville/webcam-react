@@ -42,12 +42,12 @@ class CheckboxSection extends React.Component {
                             <Grid item xs={2} style={{ display: 'flex', justifyContent: 'center' }}>
                                 <CheckboxField name={item.leftBox} />
                             </Grid>
-                            <Grid item xs={2} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                {item.ack.loading &&
-                                <CircularProgress size={23} />
-                                }
-                            </Grid>
-                            <Grid item xs={6} style={{ display: 'flex', justifyContent: 'left', alignItems: 'center' }}>
+                            {/*<Grid item xs={2} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>*/}
+                            {/*    {item.ack.loading &&*/}
+                            {/*    <CircularProgress size={23} />*/}
+                            {/*    }*/}
+                            {/*</Grid>*/}
+                            <Grid item xs={8} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                                 <Typography inline> {item.location} </Typography>
                             </Grid>
                             <Grid item xs={2} style={{ display: 'flex', justifyContent: 'center' }}>

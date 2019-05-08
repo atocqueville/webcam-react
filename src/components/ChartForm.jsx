@@ -14,10 +14,10 @@ class ChartForm extends React.Component {
 
         return (
             <Grid container direction='column'>
-                <Grid item>
+                <Grid item style={{ paddingTop: '20px' }}>
                     <RadioSection getNewData={getNewData} period={period} updatePeriod={updatePeriod} />
                 </Grid>
-                <Grid item style={{ paddingTop: '30px' }}>
+                <Grid item style={{ paddingTop: '20px' }}>
                     <CheckboxSection AckS={AckS} AckT={AckT} AckU={AckU} AckV={AckV} AckW={AckW} AckX={AckX} />
                 </Grid>
             </Grid>
