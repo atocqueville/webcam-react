@@ -46,7 +46,11 @@ class Chart extends React.Component {
             },
             plotOptions: {
                 series: {
-                    turboThreshold: 0
+                    turboThreshold: 0,
+                    findNearestPointBy: 'xy',
+                    states: {
+                        hover: false
+                    }
                 }
             },
             legend: {
@@ -54,10 +58,15 @@ class Chart extends React.Component {
             },
             tooltip: {
                 shared: true,
-                followPointer: true,
-                outside: true,
                 formatter: Chart.formatTooltip,
-                hideDelay: 0
+                followPointer: true,
+                hideDelay: 0,
+                positioner: function (labelWidth, labelHeight, point) {
+                    return {
+                        x: point.plotX - labelWidth / 2 + 20,
+                        y: point.plotY - labelHeight / 2
+                    };
+                }
             },
             title: {
                 text: 'Garches',
