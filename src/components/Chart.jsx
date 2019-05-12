@@ -20,23 +20,15 @@ class Chart extends React.Component {
     }
 
     render() {
-        const {
-            S, ST, SH,
-            T, TT, TH,
-            U, UT, UH,
-            V, VT, VH,
-            W, WT, WH,
-            X, XT, XH,
-            mobile
-        } = this.props;
+        const { S, T, U, V, W, X, formValues, mobile } = this.props;
 
         const series = [
-            ...formatSeries(S, ST, SH, 'Chambre parents', '#f44336', '#b71c1c'),
-            ...formatSeries(T, TT, TH, 'Entrée', '#e91e63', '#880e4f'),
-            ...formatSeries(U, UT, UH, 'Chambre Arthur', '#2196f3', '#0d47a1'),
-            ...formatSeries(V, VT, VH, 'Extérieur', '#009688', '#004d40'),
-            ...formatSeries(W, WT, WH, 'Cave', '#cddc39', '#827717'),
-            ...formatSeries(X, XT, XH, 'Sous-sol', '#795548', '#3e2723')
+            ...formatSeries(S, formValues.ST, formValues.SH, 'Chambre parents', '#f44336', '#b71c1c'),
+            ...formatSeries(T, formValues.TT, formValues.TH, 'Entrée', '#e91e63', '#880e4f'),
+            ...formatSeries(U, formValues.UT, formValues.UH, 'Chambre Arthur', '#2196f3', '#0d47a1'),
+            ...formatSeries(V, formValues.VT, formValues.VH, 'Extérieur', '#009688', '#004d40'),
+            ...formatSeries(W, formValues.WT, formValues.WH, 'Cave', '#cddc39', '#827717'),
+            ...formatSeries(X, formValues.XT, formValues.XH, 'Sous-sol', '#795548', '#3e2723')
         ].filter(value => Object.keys(value).length !== 0);
 
         const options = {

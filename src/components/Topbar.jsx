@@ -20,7 +20,8 @@ const styles = () => ({
         marginRight: 6
     },
     drawerPaper: {
-        width: 240
+        width: 240,
+        paddingTop: '15px'
     },
     grow: {
         flexGrow: 1
@@ -44,7 +45,7 @@ class Topbar extends React.Component {
     render() {
         const {
             AckS, AckT, AckU, AckV, AckW, AckX,
-            getNewData, period, updatePeriod, mobile, classes
+            getNewData, period, updatePeriod, openSnack, formValues, mobile, classes
         } = this.props;
 
         return (
@@ -94,9 +95,11 @@ class Topbar extends React.Component {
                         onClose={this.handleDrawerToggle}
                     >
                         <ChartForm
+                            formValues={formValues}
                             period={period}
                             updatePeriod={updatePeriod}
                             getNewData={getNewData}
+                            openSnack={openSnack}
                         />
                     </Drawer>
                 }
