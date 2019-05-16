@@ -2,13 +2,13 @@ import { GET_S, GET_T, GET_U, GET_V, GET_W, GET_X } from './constants';
 import { GET_S_SUCCESS, GET_T_SUCCESS, GET_U_SUCCESS, GET_V_SUCCESS, GET_W_SUCCESS, GET_X_SUCCESS } from './constants';
 import { GET_S_FAILURE, GET_T_FAILURE, GET_U_FAILURE, GET_V_FAILURE, GET_W_FAILURE, GET_X_FAILURE } from './constants';
 
-import { S, T } from './initialValue';
+// import { S, T } from './initialValue';
 import Ack from '../../classes/Ack.js';
 
 const initialState = {
-    S: S,
+    S: undefined,
     AckS: new Ack(false, false, false),
-    T: T,
+    T: undefined,
     AckT: new Ack(false, false, false),
     U: undefined,
     AckU: new Ack(false, false, false),

@@ -71,8 +71,11 @@ class Topbar extends React.Component {
                                     <MenuIcon />
                                 </IconButton>
                         }
+
                         <Typography inline variant="h6" color="inherit" className={classes.grow}>
-                            Accueil
+                            <a href='../index.php' style={{ textDecoration: 'none', color: 'white' }}>
+                                Accueil
+                            </a>
                         </Typography>
 
                         <AckLoadingZone AckS={AckS} AckT={AckT} AckU={AckU} AckV={AckV} AckW={AckW} AckX={AckX} />
